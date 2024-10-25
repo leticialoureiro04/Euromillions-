@@ -1,0 +1,107 @@
+/* Define o fundo da página */
+body {
+    background-color: #0080ff; /* Azul escuro, típico do Euromilhões */
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: #FFD700; /* Dourado */
+}
+
+#divcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #004080; /* Azul mais claro para contraste */
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo dos números */
+ol.numbers {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+ol.numbers li {
+    display: inline-block;
+    background-color: orangered; 
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 80px;
+    color: black;
+    border-radius: 50%; /* Faz com que os números fiquem circulares */
+    margin: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Diferenciar as estrelas com uma cor */
+#olStars li {
+    background-color: orange;
+}
+
+#divBet {
+    width: 100%;
+    max-width: 600px;
+    background-color: #0066CC;
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo do botão */
+button {
+    background-color: #FF4500; /* Laranja avermelhado */
+    width: 200px;
+    height: 60px;
+    font-size: 25px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito hover no botão */
+button:hover {
+    background-color: #FF6347; /* Fica um pouco mais claro ao passar o rato */
+}
+
+#author {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #FFD700; /* Dourado */
+}
+
+#jsonDisplay {
+    font-family: monospace;
+    color: black;
+    white-space: pre-wrap; /* Para formatar o JSON corretamente */
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
