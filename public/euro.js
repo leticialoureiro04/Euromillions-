@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function (e) {
     button = document.getElementById("genBtn");
     button.addEventListener('click', gerachave);
@@ -13,65 +15,46 @@ function gerador(n, min, max) {
     }
     return [...extracao].sort((a, b) =>  a - b);
 }
-function gerarchaveJSON() {
+
+function gerachaveJSON() {
     let an = gerador(5, 1, 50);
     let ae = gerador(2, 1, 12);
 
-    let chavejs = {
+    chaveJS = {
         numeros: an,
         estrelas: ae,
-        geradapor: 'Letícia Loureiro' // Ou outro nome que queiras
+        geradapor : 'Letícia Loureiro'
     }
+    return JSON.stringify(chaveJS);
 
-    // Converte para JSON
-    let chavejson = JSON.stringify(chavejs);
-
-    // Mostra o JSON na consola
-    console.log(chavejson);
-
-    return chavejson;
 }
+
 function consomeChaveJSON(chavejson) {
-    let chavejs = JSON.parse(chavejson); // Converte o JSON de volta para um objeto JS
-
-    // Atualiza os números principais
-    let listanumeros = document.getElementById("olMain");
-    listanumeros.innerHTML = ""; // Limpa os números antigos
-    chavejs.numeros.forEach((numero) => {
-        let newli = document.createElement("li");
-        newli.innerHTML = numero;
-        listanumeros.appendChild(newli);
-    });
-
-    // Atualiza as estrelas
-    let listaestrelas = document.getElementById("olStars");
-    listaestrelas.innerHTML = ""; // Limpa as estrelas antigas
-    chavejs.estrelas.forEach((estrela) => {
-        let newli = document.createElement("li");
-        newli.innerHTML = estrela;
-        listaestrelas.appendChild(newli);
-    });
+    let chaveJS = JSON.parse(chavejson);
+    return chaveJS;
 }
-document.addEventListener('DOMContentLoaded', function (e) {
-    let button = document.getElementById("genBtn");
-    button.addEventListener('click', function() {
-        // Gera a chave em JSON
-        let chavejson = gerarchaveJSON();
 
-        // Consome e exibe a chave
-        consomeChaveJSON(chavejson);
-    });
-});
+function gerachave(e) {
 
+    fetch('https://euromillions-e8ex.onrender.com/euro')
+        .then((res => res.json()))
+        .then((data) => {
+            updatechave(data);
+        });
+        
+}
 
+function updatechave(chave) {
+    console.log(chave)
 
-function gerachave(e) { 
-    let an = gerador(5, 1, 50);
-    let ae = gerador(2, 1, 12);
+    //let an = gerador(5, 1, 50);
+    //let ae = gerador(2, 1, 12);
 
-    console.log(gerador(5, 1, 50));
-    console.log("vou gerar a chave", e);
+    an = chave.numeros;
+    ae = chave.estrelas;
+
     
+    //debugger;
     listanumeros = document.getElementById("olMain");
     listanumeros.innerHTML = "";
     an.forEach((numero) => {
@@ -88,5 +71,8 @@ function gerachave(e) {
         listaestrelas.appendChild(newli);
     })
 }
+
+
+
 
 
